@@ -1,0 +1,88 @@
+
+<div class="text-layaut">
+    <h1>Pipes Básicos</h1>
+
+</div>
+<div class="p-grid">
+    <p-card class="p-col-4" [subheader]="nombreLo | lowercase">
+
+        {{nombreLo | uppercase}}
+        
+    </p-card>
+    <p-card class="p-col-4" [subheader]="nombreUp | uppercase">
+        {{nombreUp | lowercase}}
+    </p-card>
+    <p-card class="p-col-4" [subheader]="nombreCompleto | titlecase">
+
+        {{nombreCompleto | titlecase}}
+    </p-card>
+</div>
+
+<div class="text-layaut">
+    <h2>Date | Fecha | Pipe</h2>
+    <a href="https://angular.io/api/common/DatePipe" target="_blank"> para más datos visitar a la página</a>
+</div>
+<div class="p-grid">
+    <p-card class="p-col-6">
+
+        <ul>
+            <li>fecha</li>
+            <li>facha | date</li>
+            <li>facha | date:'short'</li>
+            <li>facha | date:'long'</li>
+            <li>facha | date:'MMMM'</li>
+            <li>facha | date:'MMMM dd, yyyy'</li>
+          
+        </ul>
+        <hr>
+        <ul>
+            <li>
+            fecha | date:'long':'GTM-6
+            </li>
+            <li>
+            fecha | date:'long':'GTM-4
+            </li>
+            <li>
+            fecha | date:'long':'':'en
+            </li>
+            <li>
+            fecha | date:'long':'':'es-HN
+            </li>
+            <li>
+            fecha | date:'long':'':'fa
+            </li>
+        </ul>
+
+    </p-card >
+
+    <p-card class="p-col-6">
+        <ul>
+            <li>{{fecha}}</li>
+            <li>{{fecha | date}}</li>
+            <li>{{fecha | date:'short'}}</li>
+            <li>{{fecha | date:'long'}}</li>
+            <li>{{fecha | date:'MMMM'}}</li>
+            <li>{{fecha | date:'MMMM dd, yyyy'}}</li>
+            
+        </ul>
+        <hr>
+        <ul>
+            <li>
+                {{fecha | date:'long':'GTM-6'}}
+            </li>
+            <li>
+                {{fecha | date:'long':'GTM-4'}}
+            </li>
+            <li>
+                {{fecha | date:'long':'':'en'}}
+            </li>
+            <li>
+                {{fecha | date:'long':'':'es-HN'}}
+            </li>
+            <li>
+                {{fecha | date:'long':'':'fa'}}
+            </li>
+        </ul>
+
+    </p-card >
+</div>
