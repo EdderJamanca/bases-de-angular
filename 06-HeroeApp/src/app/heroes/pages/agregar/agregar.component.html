@@ -1,0 +1,102 @@
+<h1>{{
+        (heroes.id)? 'Editar': 'Nuevo'
+    }} 
+    Héroe
+     <span>{{heroes.superhero}}</span>
+</h1>
+
+<div fxLayout="row" fxLayoutGap="20px">
+
+    <div fxFlex="50" fxLayout="column">
+
+        <div fxLayout="row" fxLayoutGap="20px">
+
+            <mat-form-field fxFlex="100">
+
+                <mat-label>Super Héroe</mat-label>
+    
+                <input matInput
+                 type="text"
+                  required
+                  [(ngModel)]="heroes.superhero"
+                  >
+                
+            </mat-form-field>
+    
+            <mat-form-field fxFlex="100">
+    
+                <mat-label>Alter ego</mat-label>
+    
+                <input matInput type="text"
+                [(ngModel)]="heroes.alter_ego"
+                 required>
+                
+            </mat-form-field>
+    
+        </div>
+            
+        <mat-form-field fxFlex="100">
+    
+            <mat-label>Primera Aparición</mat-label>
+
+            <input matInput type="text" 
+            [(ngModel)]="heroes.first_appearance"
+            required>
+            
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+    
+            <mat-label>Personaje</mat-label>
+
+            <input matInput type="text" 
+            [(ngModel)]="heroes.characters"
+            required>
+            
+        </mat-form-field>
+        <mat-form-field fxFlex="100">
+
+            <mat-label>Creador</mat-label>
+            <mat-select required  [(ngModel)]="heroes.publisher">
+                
+                <mat-option *ngFor="let publus of publusher" [value]="publus.id">
+                    {{publus.desc}}
+                </mat-option>
+            </mat-select>
+
+            
+        </mat-form-field>
+        <mat-form-field fxFlex="100">
+    
+            <mat-label>Foto Url</mat-label>
+
+            <input matInput type="text" 
+            [(ngModel)]="heroes.alt_img"
+            required>
+            
+        </mat-form-field>
+        <br>
+
+
+
+        <div fxLayout>
+            <button mat-raised-button color="primary"(click)="guardar()">
+                <mat-icon>edit</mat-icon>
+                {{
+                    (heroes.id)? 'Actualizar': 'Crear'
+                }} 
+            </button>
+            <span class="spacer"></span>
+            <button mat-raised-button color="warn"(click)="borrar()">
+                <mat-icon>remove</mat-icon>
+                Borrar
+            </button>
+        </div>
+
+    </div>
+    <div fxFlex="50" >
+
+        <img [src]="heroes | imagen" alt="" sizes="" srcset="">
+
+    </div>
+</div>
