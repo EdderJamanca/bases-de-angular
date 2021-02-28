@@ -1,1 +1,77 @@
-<p>basicos works!</p>
+<h2 class="mt-5">Template: Basico</h2>
+
+<hr>
+
+<div class="row">
+
+    <div class="col">
+
+        <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="guardar()">
+
+            <div class="mb-3 row">
+
+                <label class="col-sm-3 col-form-label">Producto</label>
+                <div class="col-sm-9">
+    
+                    <input type="text"
+                           class="form-control" 
+                           name="producto"
+                           formControlName="nombre"
+                           placeholder="Nombre del producto">
+
+                    <span class="form-text text-danger" *ngIf="campoValidado('nombre')">
+                    Debe de ser de tres letras</span>
+                </div>
+
+            </div>
+            <div class="mb-3 row">
+
+                <label class="col-sm-3 col-form-label">Precio</label>
+                <div class="col-sm-9">
+    
+                    <input type="number" 
+                            name="precio"
+                           class="form-control"
+                           formControlName="precio"
+                           placeholder="Precio del producto">
+                    <span class="form-text text-danger"
+                           *ngIf="campoValidado('precio')">
+                        El precio debe de ser mayor a 0</span>
+                </div>
+
+            </div>
+
+            <div class="mb-3 row">
+
+                <label class="col-sm-3 col-form-label">Existencias</label>
+                <div class="col-sm-9">
+    
+                    <input type="number" 
+                            name="existencia"
+                           class="form-control"
+                           formControlName="existencia"
+                           placeholder="Existencia del producto">
+                    <span class="form-text text-danger"
+                           *ngIf="campoValidado('existencia')">
+                        La existencia debe de ser mayor a 0</span>
+                </div>
+
+            </div>
+            
+
+                <button class="btn btn-md btn-primary float-end"  >
+                    Guardar
+                </button>
+
+         
+               
+        </form>
+
+    </div>
+  
+</div>
+<SPAN> {{ miFormulario.invalid | json }}</SPAN>
+<br>
+<SPAN> {{ miFormulario.touched | json }}</SPAN>
+<br>
+<SPAN> {{ miFormulario.value | json }}</SPAN>

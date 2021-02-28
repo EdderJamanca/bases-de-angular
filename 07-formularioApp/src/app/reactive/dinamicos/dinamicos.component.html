@@ -1,1 +1,73 @@
-<p>dinamicos works!</p>
+<h2 class="mt-5">Template: Basico</h2>
+
+<hr>
+<div class="row">
+
+    <div class="col">
+
+        <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="guardar()">
+
+            <div class="mb-3 row">
+              <label class="col-sm-3 col-form-label">Nombre</label>
+                <div class="col-sm-9">
+                    <input type="text" 
+                           class="form-control"
+                           name="nombre"
+                           formControlName="nombre"
+                           placeholder="Nombre de la persona">
+                    <span class="form-text text-danger" *ngIf="validarCampo('nombre')">
+                        Este campo es obigatorio
+                    </span>
+                </div>
+
+            </div>
+            <!-- Agregar -->
+          
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Agregar</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                        
+                                <input type="text" 
+                                    class="form-control"
+                                    name="nuevoJuego"
+                                    [formControl]="nuevoFavorito"
+                                    (keyup.enter)="agregarFavorito()"
+                                    placeholder="agrar favorito">
+                            
+                            <button class="btn btn-primary" type="button" (click)="agregarFavorito()">
+                                agregar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Favoritoso</label>
+                      <div class="col-sm-9" formArrayName='favoritos'>
+                          <div class="input-group mb-2" *ngFor="let favorito of favoriosArr.controls; let i=index">
+
+                            <input type="text" 
+                            class="form-control" 
+                            [formControlName]="i"
+                            name="favorito_">
+                            <button class="btn btn-outline-danger " (click)="borrar(i)">
+                                Borrar
+                            </button>
+
+                          </div>
+                        
+                      </div>
+      
+                  </div>
+            
+
+            <button class="btn btn-md btn-primary float-end"
+                   >
+                Guardar
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
